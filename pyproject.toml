@@ -1,0 +1,108 @@
+[project]
+name = "refire"
+version = "0.1.0"
+description = "A flexible Python decorator for retrying functions upon failure with support for exponential backoff, jitter, and configurable retry policies."
+summary = "Retry decorator for Python with configurable policies, exponential backoff, and jitter for resilient function execution."
+readme = "README.md"
+license = { text = "Apache-2.0", file = "LICENSE" }
+authors = [
+    { name = "Max Scheijen", email = "maxscheijen@protonmail.com" }
+]
+
+maintainers = [
+    { name = "Max Scheijen", email = "maxscheijen@protonmail.com" }
+]
+requires-python = ">=3.10"
+dependencies = []
+classifiers = [
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Utilities",
+    "Operating System :: OS Independent",
+]
+keywords = [
+    "retry",
+    "retries",
+    "decorator",
+    "backoff",
+    "exponential-backoff",
+    "jitter",
+    "resilience",
+    "fault-tolerance",
+    "error-handling",
+    "function-wrapper",
+    "reliability",
+    "utilities",
+    "developer-tools",
+]
+
+[project.urls]
+Homepage = "https://github.com/maxscheijen/refire"
+Documentation = "https://github.com/maxscheijen/refire"
+Repository = "https://github.com/maxscheijen/refire.git"
+Issues = "https://github.com/maxscheijen/refire/issues"
+
+[build-system]
+requires = ["uv_build>=0.8.14,<0.9.0"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "refire"
+module-root = ""
+
+[project.optional-dependencies]
+dev = [
+    "interrogate>=1.7.0",
+    "mypy>=1.17.1",
+    "pre-commit>=4.3.0",
+    "pytest>=8.4.2",
+    "pytest-cov>=7.0.0",
+    "ruff>=0.12.12",
+]
+
+[tool.ruff.lint]
+select = ["I"]
+
+[tool.pytest.ini_options]
+addopts = [
+    "--cov=refire",
+    "--cov-report=term-missing",
+    "--cov-fail-under=100",
+    "--quiet",
+    "-ra"
+]
+testpaths = [
+    "tests"
+]
+
+[tool.interrogate]
+ignore-init-method = true
+ignore-init-module = true
+ignore-magic = true
+ignore-semiprivate = true
+ignore-private = true
+ignore-property-decorators = false
+ignore-module = true
+ignore-nested-functions = true
+ignore-nested-classes = true
+fail-under = 100
+
+[tool.mypy]
+python_version = "3.10"
+files = ["refire", "tests"]
+disallow_untyped_defs = true
+warn_return_any = true
+warn_unused_configs = true
+
+[[tool.mypy.overrides]]
+module = ["refire.*"]
+ignore_missing_imports = true
