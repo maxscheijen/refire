@@ -93,7 +93,7 @@ def refire(
                         if remaining_tries == 0:
                             raise
 
-                    logging.log(
+                    log.log(
                         log_level,
                         f"Caught {type(e).__name__}: {e}. "
                         f"Retrying in {current_delay:.2f}s "

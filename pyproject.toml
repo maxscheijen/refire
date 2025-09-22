@@ -70,7 +70,7 @@ dev = [
 ]
 
 [tool.ruff.lint]
-select = ["I"]
+extend-select = ["I"]
 
 [tool.pytest.ini_options]
 addopts = [
