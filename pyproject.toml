@@ -1,6 +1,6 @@
 [project]
 name = "refire"
-version = "0.1.0"
+version = "0.1.1"
 description = "A flexible Python decorator for retrying functions upon failure with support for exponential backoff, jitter, and configurable retry policies."
 summary = "Retry decorator for Python with configurable policies, exponential backoff, and jitter for resilient function execution."
 readme = "README.md"
